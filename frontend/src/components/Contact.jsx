@@ -100,15 +100,15 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="pt-24 pb-16 bg-muted">
         <div className="container mx-auto px-6">
           <div className={`text-center transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}>
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">Get In Touch</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <h1 className="text-5xl font-bold text-foreground mb-6">Get In Touch</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Ready to transform your data into actionable insights? Let's discuss how my expertise 
               in data analytics and business intelligence can drive your organization forward.
             </p>
@@ -120,16 +120,16 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Me a Message</h2>
+            <div className="bg-background rounded-2xl shadow-xl p-8 border border-border">
+              <h2 className="text-2xl font-bold text-foreground mb-6">Send Me a Message</h2>
               
               {submitStatus === 'success' && (
-                <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4">
+                <div className="mb-6 bg-accent border border-border rounded-lg p-4">
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-foreground mr-2" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
-                    <p className="text-green-800">
+                    <p className="text-foreground">
                       Thank you! Your message has been sent successfully. I'll get back to you soon.
                     </p>
                   </div>
@@ -137,12 +137,12 @@ const Contact = () => {
               )}
 
               {submitStatus === 'error' && (
-                <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
+                <div className="mb-6 bg-destructive/10 border border-destructive/20 rounded-lg p-4">
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 text-red-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-destructive mr-2" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
-                    <p className="text-red-800">
+                    <p className="text-destructive">
                       There was an error sending your message. Please try again or contact me directly.
                     </p>
                   </div>
@@ -152,7 +152,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                       Full Name *
                     </label>
                     <input
@@ -162,12 +162,12 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-foreground focus:border-transparent transition-all duration-200 bg-background text-foreground"
                       placeholder="Your full name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                       Email Address *
                     </label>
                     <input
@@ -177,7 +177,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-foreground focus:border-transparent transition-all duration-200 bg-background text-foreground"
                       placeholder="your.email@company.com"
                     />
                   </div>
@@ -185,7 +185,7 @@ const Contact = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
                       Company
                     </label>
                     <input
@@ -194,12 +194,12 @@ const Contact = () => {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-foreground focus:border-transparent transition-all duration-200 bg-background text-foreground"
                       placeholder="Your company"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
                       Phone Number
                     </label>
                     <input
@@ -208,14 +208,14 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-foreground focus:border-transparent transition-all duration-200 bg-background text-foreground"
                       placeholder="(123) 456-7890"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
                     Subject *
                   </label>
                   <input
@@ -225,13 +225,13 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-foreground focus:border-transparent transition-all duration-200 bg-background text-foreground"
                     placeholder="What would you like to discuss?"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                     Message *
                   </label>
                   <textarea
@@ -241,7 +241,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows="6"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-vertical"
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-foreground focus:border-transparent transition-all duration-200 resize-vertical bg-background text-foreground"
                     placeholder="Tell me about your project, challenge, or how I can help..."
                   />
                 </div>
@@ -249,11 +249,11 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  className="w-full bg-foreground text-background px-8 py-4 rounded-lg font-semibold hover:bg-foreground/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-background" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
                       </svg>
@@ -269,8 +269,8 @@ const Contact = () => {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Let's Connect</h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-6">Let's Connect</h2>
+                <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                   I'm always interested in discussing new opportunities, challenging projects, 
                   and innovative ways to leverage data analytics for business growth.
                 </p>
@@ -278,23 +278,23 @@ const Contact = () => {
 
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl hover:from-blue-100 hover:to-purple-100 transition-all duration-300 transform hover:scale-105">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center text-white mr-4">
+                  <div key={index} className="flex items-center p-6 bg-muted rounded-xl hover:bg-accent transition-all duration-300 transform hover:scale-105">
+                    <div className="w-12 h-12 bg-foreground rounded-lg flex items-center justify-center text-background mr-4">
                       {info.icon}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">{info.title}</h3>
+                      <h3 className="font-semibold text-foreground">{info.title}</h3>
                       {info.link ? (
                         <a 
                           href={info.link} 
                           target={info.link.startsWith('http') ? '_blank' : '_self'}
                           rel={info.link.startsWith('http') ? 'noopener noreferrer' : ''}
-                          className="text-blue-600 hover:text-purple-600 transition-colors duration-200"
+                          className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-gray-600">{info.value}</p>
+                        <p className="text-muted-foreground">{info.value}</p>
                       )}
                     </div>
                   </div>
@@ -302,21 +302,21 @@ const Contact = () => {
               </div>
 
               {/* Availability */}
-              <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border border-green-200">
+              <div className="bg-accent rounded-xl p-6 border border-border">
                 <div className="flex items-center mb-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full mr-3 animate-pulse"></div>
-                  <h3 className="font-semibold text-gray-900">Currently Available</h3>
+                  <div className="w-3 h-3 bg-foreground rounded-full mr-3 animate-pulse"></div>
+                  <h3 className="font-semibold text-foreground">Currently Available</h3>
                 </div>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   Open to new opportunities in data analytics, business intelligence, 
                   and consulting roles. Let's discuss how I can contribute to your team.
                 </p>
               </div>
 
               {/* Response Time */}
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6">
-                <h3 className="font-semibold text-gray-900 mb-3">Quick Response</h3>
-                <p className="text-gray-600">
+              <div className="bg-muted rounded-xl p-6">
+                <h3 className="font-semibold text-foreground mb-3">Quick Response</h3>
+                <p className="text-muted-foreground">
                   I typically respond to messages within 24 hours during business days. 
                   For urgent matters, feel free to call directly.
                 </p>
@@ -327,36 +327,36 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-muted">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
             Frequently Asked Questions
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="font-bold text-gray-900 mb-3">What services do you offer?</h3>
-              <p className="text-gray-600">
+            <div className="bg-background rounded-xl p-6 shadow-lg border border-border">
+              <h3 className="font-bold text-foreground mb-3">What services do you offer?</h3>
+              <p className="text-muted-foreground">
                 I specialize in data analysis, business intelligence dashboard development, 
                 predictive modeling, ETL automation, and sales operations optimization.
               </p>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="font-bold text-gray-900 mb-3">What industries do you work with?</h3>
-              <p className="text-gray-600">
+            <div className="bg-background rounded-xl p-6 shadow-lg border border-border">
+              <h3 className="font-bold text-foreground mb-3">What industries do you work with?</h3>
+              <p className="text-muted-foreground">
                 I have experience across non-profit, culinary, technology, consulting, 
                 and trading industries, with transferable skills applicable to any data-driven sector.
               </p>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="font-bold text-gray-900 mb-3">Do you work on freelance projects?</h3>
-              <p className="text-gray-600">
+            <div className="bg-background rounded-xl p-6 shadow-lg border border-border">
+              <h3 className="font-bold text-foreground mb-3">Do you work on freelance projects?</h3>
+              <p className="text-muted-foreground">
                 Yes, I'm open to both full-time opportunities and freelance consulting projects. 
                 Let's discuss your specific needs and timeline.
               </p>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="font-bold text-gray-900 mb-3">What's your typical project timeline?</h3>
-              <p className="text-gray-600">
+            <div className="bg-background rounded-xl p-6 shadow-lg border border-border">
+              <h3 className="font-bold text-foreground mb-3">What's your typical project timeline?</h3>
+              <p className="text-muted-foreground">
                 Project timelines vary based on scope and complexity. I'll provide detailed 
                 timeline estimates during our initial consultation.
               </p>

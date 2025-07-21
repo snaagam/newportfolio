@@ -99,15 +99,15 @@ const Projects = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="pt-24 pb-16 bg-muted">
         <div className="container mx-auto px-6">
           <div className={`text-center transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}>
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">Relevant Projects</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <h1 className="text-5xl font-bold text-foreground mb-6">Relevant Projects</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Showcase of impactful projects that demonstrate my expertise in data analytics, 
               AI/ML implementation, and business intelligence solutions.
             </p>
@@ -116,7 +116,7 @@ const Projects = () => {
       </section>
 
       {/* Filter Categories */}
-      <section className="py-8 bg-white sticky top-16 z-40 border-b border-gray-100">
+      <section className="py-8 bg-background sticky top-16 z-40 border-b border-border">
         <div className="container mx-auto px-6">
           <div className="flex justify-center space-x-4 overflow-x-auto">
             {categories.map((category) => (
@@ -125,8 +125,8 @@ const Projects = () => {
                 onClick={() => setActiveCategory(category)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 whitespace-nowrap ${
                   activeCategory === category
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    ? "bg-foreground text-background shadow-lg"
+                    : "bg-muted text-foreground hover:bg-accent"
                 }`}
               >
                 {category}
@@ -143,7 +143,7 @@ const Projects = () => {
             {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
-                className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:scale-105 cursor-pointer"
+                className="bg-background rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:scale-105 cursor-pointer border border-border"
                 onClick={() => setSelectedProject(project)}
               >
                 <div className="relative h-48 overflow-hidden">
@@ -153,29 +153,29 @@ const Projects = () => {
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-white/90 backdrop-blur-sm text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-background/90 backdrop-blur-sm text-foreground px-3 py-1 rounded-full text-sm font-medium">
                       {project.category}
                     </span>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <span className="bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+                    <span className="bg-foreground/80 backdrop-blur-sm text-background px-3 py-1 rounded-full text-sm">
                       {project.period}
                     </span>
                   </div>
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
+                  <h3 className="text-xl font-bold text-foreground mb-3">{project.title}</h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.slice(0, 4).map((tech) => (
-                      <span key={tech} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                      <span key={tech} className="bg-muted text-foreground px-3 py-1 rounded-full text-sm font-medium">
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 4 && (
-                      <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
+                      <span className="bg-accent text-muted-foreground px-3 py-1 rounded-full text-sm">
                         +{project.technologies.length - 4} more
                       </span>
                     )}
@@ -183,9 +183,9 @@ const Projects = () => {
                   
                   <div className="grid grid-cols-3 gap-4 text-center">
                     {Object.entries(project.impact).map(([key, value]) => (
-                      <div key={key} className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-3">
-                        <div className="text-lg font-bold text-blue-600">{value}</div>
-                        <div className="text-xs text-gray-600 capitalize">
+                      <div key={key} className="bg-muted rounded-lg p-3">
+                        <div className="text-lg font-bold text-foreground">{value}</div>
+                        <div className="text-xs text-muted-foreground capitalize">
                           {key.replace(/([A-Z])/g, ' $1').trim()}
                         </div>
                       </div>
@@ -200,8 +200,8 @@ const Projects = () => {
 
       {/* Project Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-foreground/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-background rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="relative h-64 overflow-hidden rounded-t-2xl">
               <img 
                 src={selectedProject.image} 
@@ -210,7 +210,7 @@ const Projects = () => {
               />
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
+                className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm hover:bg-background text-foreground w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -220,42 +220,42 @@ const Projects = () => {
             
             <div className="p-8">
               <div className="flex items-center justify-between mb-4">
-                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                <span className="bg-muted text-foreground px-4 py-2 rounded-full text-sm font-medium">
                   {selectedProject.category}
                 </span>
-                <span className="text-gray-600">{selectedProject.period}</span>
+                <span className="text-muted-foreground">{selectedProject.period}</span>
               </div>
               
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">{selectedProject.title}</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">{selectedProject.description}</p>
+              <h2 className="text-3xl font-bold text-foreground mb-4">{selectedProject.title}</h2>
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">{selectedProject.description}</p>
               
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Key Achievements</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Key Achievements</h3>
               <div className="space-y-3 mb-6">
                 {selectedProject.achievements.map((achievement, index) => (
                   <div key={index} className="flex items-start">
-                    <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-foreground mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
-                    <p className="text-gray-700 leading-relaxed">{achievement}</p>
+                    <p className="text-muted-foreground leading-relaxed">{achievement}</p>
                   </div>
                 ))}
               </div>
               
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Technologies Used</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Technologies Used</h3>
               <div className="flex flex-wrap gap-3 mb-6">
                 {selectedProject.technologies.map((tech) => (
-                  <span key={tech} className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-4 py-2 rounded-full font-medium">
+                  <span key={tech} className="bg-muted text-foreground px-4 py-2 rounded-full font-medium">
                     {tech}
                   </span>
                 ))}
               </div>
               
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Impact Metrics</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Impact Metrics</h3>
               <div className="grid md:grid-cols-3 gap-4">
                 {Object.entries(selectedProject.impact).map(([key, value]) => (
-                  <div key={key} className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-4 text-center">
-                    <div className="text-2xl font-bold text-blue-600 mb-1">{value}</div>
-                    <div className="text-sm text-gray-600 capitalize">
+                  <div key={key} className="bg-muted rounded-xl p-4 text-center">
+                    <div className="text-2xl font-bold text-foreground mb-1">{value}</div>
+                    <div className="text-sm text-muted-foreground capitalize">
                       {key.replace(/([A-Z])/g, ' $1').trim()}
                     </div>
                   </div>
@@ -267,17 +267,17 @@ const Projects = () => {
       )}
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-16 bg-foreground">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">
+          <h2 className="text-3xl font-bold text-background mb-6">
             Interested in Similar Results?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-background/80 mb-8 max-w-2xl mx-auto">
             Let's discuss how these proven methodologies can be applied to your organization's challenges.
           </p>
           <a 
             href="/contact" 
-            className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl inline-block"
+            className="bg-background text-foreground px-8 py-4 rounded-full font-semibold hover:bg-background/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl inline-block"
           >
             Discuss Your Project
           </a>
