@@ -6,9 +6,7 @@ import os
 from datetime import datetime
 
 from models.blog import BlogPost, BlogPostCreate, BlogPostUpdate
-
-# Get database connection
-from server import db
+from database import db
 
 router = APIRouter(prefix="/api/blog", tags=["blog"])
 
