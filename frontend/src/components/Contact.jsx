@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { mockAPI } from "../mockData/mockData";
+import axios from "axios";
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -30,8 +32,7 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Mock form submission
-      await mockAPI.submitContactForm(formData);
+      await axios.post(`${BACKEND_URL}/api/contact/submit`, formData);
       
       setSubmitStatus('success');
       setFormData({

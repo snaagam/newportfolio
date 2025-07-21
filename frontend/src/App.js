@@ -6,7 +6,9 @@ import About from "./components/About";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Blog from "./components/Blog";
+import BlogAdmin from "./components/BlogAdmin";
 import Contact from "./components/Contact";
+import { Toaster } from "./components/ui/toaster";
 import "./App.css";
 
 function App() {
@@ -20,8 +22,10 @@ function App() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/admin/blog" element={<BlogAdmin />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <Toaster />
       </BrowserRouter>
     </div>
   );
