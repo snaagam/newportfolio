@@ -157,33 +157,33 @@ const BlogAdmin = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-foreground"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen bg-muted pt-24">
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900">Blog Management</h1>
+          <h1 className="text-4xl font-bold text-foreground">Blog Management</h1>
           <button
             onClick={handleCreate}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300"
+            className="bg-foreground text-background px-6 py-3 rounded-lg font-semibold hover:bg-foreground/90 transform hover:scale-105 transition-all duration-300"
           >
             Create New Post
           </button>
         </div>
 
         {(isCreating || isEditing) && (
-          <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-            <h2 className="text-2xl font-bold mb-6">
+          <div className="bg-background rounded-xl shadow-lg p-8 mb-8 border border-border">
+            <h2 className="text-2xl font-bold mb-6 text-foreground">
               {isCreating ? 'Create New Post' : 'Edit Post'}
             </h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Title *
                 </label>
                 <input
@@ -192,12 +192,12 @@ const BlogAdmin = () => {
                   value={formData.title}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-foreground focus:border-transparent bg-background text-foreground"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Excerpt *
                 </label>
                 <textarea
@@ -206,12 +206,12 @@ const BlogAdmin = () => {
                   onChange={handleInputChange}
                   required
                   rows="3"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-foreground focus:border-transparent bg-background text-foreground"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Content * (HTML supported)
                 </label>
                 <textarea
@@ -220,13 +220,13 @@ const BlogAdmin = () => {
                   onChange={handleInputChange}
                   required
                   rows="12"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-foreground focus:border-transparent font-mono text-sm bg-background text-foreground"
                 />
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-foreground mb-2">
                     Tags (comma separated)
                   </label>
                   <input
@@ -235,12 +235,12 @@ const BlogAdmin = () => {
                     value={Array.isArray(formData.tags) ? formData.tags.join(', ') : ''}
                     onChange={handleInputChange}
                     placeholder="React, JavaScript, Tutorial"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-foreground focus:border-transparent bg-background text-foreground"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-foreground mb-2">
                     Read Time *
                   </label>
                   <input
@@ -250,13 +250,13 @@ const BlogAdmin = () => {
                     onChange={handleInputChange}
                     required
                     placeholder="5 min read"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-foreground focus:border-transparent bg-background text-foreground"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Image URL *
                 </label>
                 <input
@@ -266,7 +266,7 @@ const BlogAdmin = () => {
                   onChange={handleInputChange}
                   required
                   placeholder="https://example.com/image.jpg"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-foreground focus:border-transparent bg-background text-foreground"
                 />
               </div>
 
@@ -276,9 +276,9 @@ const BlogAdmin = () => {
                   name="is_published"
                   checked={formData.is_published}
                   onChange={handleInputChange}
-                  className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                  className="w-4 h-4 text-foreground border-border rounded focus:ring-foreground"
                 />
-                <label className="ml-2 text-sm text-gray-700">
+                <label className="ml-2 text-sm text-foreground">
                   Published
                 </label>
               </div>
@@ -286,14 +286,14 @@ const BlogAdmin = () => {
               <div className="flex space-x-4">
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300"
+                  className="bg-foreground text-background px-6 py-3 rounded-lg font-semibold hover:bg-foreground/90 transform hover:scale-105 transition-all duration-300"
                 >
                   {isCreating ? 'Create Post' : 'Update Post'}
                 </button>
                 <button
                   type="button"
                   onClick={handleCancel}
-                  className="bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transform hover:scale-105 transition-all duration-300"
+                  className="bg-muted-foreground text-background px-6 py-3 rounded-lg font-semibold hover:bg-muted-foreground/90 transform hover:scale-105 transition-all duration-300"
                 >
                   Cancel
                 </button>
@@ -304,27 +304,27 @@ const BlogAdmin = () => {
 
         <div className="grid gap-6">
           {posts.map((post) => (
-            <div key={post.id} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+            <div key={post.id} className="bg-background rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-border">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <div className="flex items-center mb-2">
-                    <h3 className="text-xl font-bold text-gray-900 mr-4">
+                    <h3 className="text-xl font-bold text-foreground mr-4">
                       {post.title}
                     </h3>
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                       post.is_published 
-                        ? 'bg-green-100 text-green-800' 
-                        : 'bg-gray-100 text-gray-800'
+                        ? 'bg-accent text-foreground' 
+                        : 'bg-muted text-muted-foreground'
                     }`}>
                       {post.is_published ? 'Published' : 'Draft'}
                     </span>
                   </div>
                   
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
                     {post.excerpt}
                   </p>
                   
-                  <div className="flex items-center text-sm text-gray-500 mb-4">
+                  <div className="flex items-center text-sm text-muted-foreground mb-4">
                     <span>{new Date(post.publish_date).toLocaleDateString()}</span>
                     <span className="mx-2">•</span>
                     <span>{post.read_time}</span>
@@ -333,12 +333,12 @@ const BlogAdmin = () => {
                         <span className="mx-2">•</span>
                         <div className="flex flex-wrap gap-1">
                           {post.tags.slice(0, 3).map((tag, index) => (
-                            <span key={index} className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
+                            <span key={index} className="bg-muted text-foreground px-2 py-1 rounded text-xs">
                               {tag}
                             </span>
                           ))}
                           {post.tags.length > 3 && (
-                            <span className="text-xs text-gray-500">+{post.tags.length - 3}</span>
+                            <span className="text-xs text-muted-foreground">+{post.tags.length - 3}</span>
                           )}
                         </div>
                       </>
@@ -349,13 +349,13 @@ const BlogAdmin = () => {
                 <div className="flex space-x-2 ml-4">
                   <button
                     onClick={() => handleEdit(post)}
-                    className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200"
+                    className="bg-foreground text-background px-4 py-2 rounded-lg font-medium hover:bg-foreground/90 transition-colors duration-200"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => handleDelete(post.id)}
-                    className="bg-red-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200"
+                    className="bg-destructive text-destructive-foreground px-4 py-2 rounded-lg font-medium hover:bg-destructive/90 transition-colors duration-200"
                   >
                     Delete
                   </button>
@@ -367,13 +367,13 @@ const BlogAdmin = () => {
 
         {posts.length === 0 && (
           <div className="text-center py-12">
-            <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+            <div className="w-16 h-16 bg-muted rounded-full mx-auto mb-4 flex items-center justify-center">
+              <svg className="w-8 h-8 text-muted-foreground" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">No Blog Posts</h3>
-            <p className="text-gray-600">Get started by creating your first blog post.</p>
+            <h3 className="text-xl font-semibold text-foreground mb-2">No Blog Posts</h3>
+            <p className="text-muted-foreground">Get started by creating your first blog post.</p>
           </div>
         )}
       </div>
