@@ -27,7 +27,7 @@ const Header = () => {
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100" 
+          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border" 
           : "bg-transparent"
       }`}
     >
@@ -35,7 +35,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <Link 
             to="/" 
-            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200"
+            className="text-2xl font-bold text-foreground hover:scale-105 transition-transform duration-200"
           >
             Aagam Shah
           </Link>
@@ -46,13 +46,13 @@ const Header = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-blue-600 ${
+                className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-foreground ${
                   location.pathname === item.path
-                    ? "text-blue-600"
+                    ? "text-foreground"
                     : isScrolled
-                    ? "text-gray-700 hover:text-blue-600"
-                    : "text-white hover:text-blue-200"
-                } after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${
+                    ? "text-muted-foreground hover:text-foreground"
+                    : "text-background hover:text-cream-100"
+                } after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:after:w-full ${
                   location.pathname === item.path ? "after:w-full" : ""
                 }`}
               >
@@ -64,10 +64,10 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg transition-colors duration-200 hover:bg-gray-100"
+            className="md:hidden p-2 rounded-lg transition-colors duration-200 hover:bg-accent"
           >
             <svg
-              className={`w-6 h-6 ${isScrolled ? "text-gray-700" : "text-white"}`}
+              className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-background"}`}
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -86,17 +86,17 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
+          <div className="md:hidden absolute top-full left-0 w-full bg-background shadow-lg border-t border-border">
             <div className="py-4">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-6 py-3 text-sm font-medium transition-colors duration-200 hover:bg-gray-50 hover:text-blue-600 ${
+                  className={`block px-6 py-3 text-sm font-medium transition-colors duration-200 hover:bg-accent hover:text-foreground ${
                     location.pathname === item.path
-                      ? "text-blue-600 bg-blue-50"
-                      : "text-gray-700"
+                      ? "text-foreground bg-muted"
+                      : "text-muted-foreground"
                   }`}
                 >
                   {item.label}

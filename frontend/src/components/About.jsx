@@ -50,15 +50,15 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="pt-24 pb-16 bg-muted">
         <div className="container mx-auto px-6">
           <div className={`text-center transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}>
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">About Me</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <h1 className="text-5xl font-bold text-foreground mb-6">About Me</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Detail-oriented analyst with 5+ years of experience in data analysis, BI, SQL, 
               sales operations, and data modeling. Known for building predictive models, 
               improving workflows, and translating complex data into insights that drive 
@@ -73,21 +73,21 @@ const About = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-foreground mb-6">
                 Data-Driven Professional
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 Based in Edison, NJ, I bring a unique blend of technical expertise and 
                 business acumen to every project. My passion lies in uncovering insights 
                 from complex datasets and transforming them into actionable strategies 
                 that drive measurable business results.
               </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 Throughout my career, I've consistently delivered value by automating 
                 workflows, building predictive models, and creating comprehensive BI 
                 dashboards that empower stakeholders to make informed decisions.
               </p>
-              <div className="flex items-center space-x-4 text-gray-600">
+              <div className="flex items-center space-x-4 text-muted-foreground">
                 <div className="flex items-center">
                   <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -103,7 +103,7 @@ const About = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl p-8 text-white text-center shadow-xl transform hover:scale-105 transition-all duration-300">
+              <div className="bg-foreground rounded-2xl p-8 text-background text-center shadow-xl transform hover:scale-105 transition-all duration-300">
                 <div className="text-4xl font-bold mb-2">5+</div>
                 <div className="text-lg mb-4">Years of Experience</div>
                 <div className="text-sm opacity-90">
@@ -116,20 +116,20 @@ const About = () => {
       </section>
 
       {/* Skills Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-muted">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Core Skills</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Core Skills</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {Object.entries(coreSkills).map(([category, skills]) => (
-              <div key={category} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-blue-600">
+              <div key={category} className="bg-background rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                <h3 className="text-xl font-bold text-foreground mb-4">
                   {category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.map((skill) => (
                     <span 
                       key={skill}
-                      className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-100 transition-colors duration-200"
+                      className="bg-muted text-foreground px-3 py-1 rounded-full text-sm font-medium hover:bg-accent transition-colors duration-200"
                     >
                       {skill}
                     </span>
@@ -144,13 +144,13 @@ const About = () => {
       {/* Education Section */}
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Education</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Education</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {education.map((edu, index) => (
-              <div key={index} className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-200 hover:border-blue-300 transition-all duration-300 transform hover:scale-105">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{edu.degree}</h3>
-                <p className="text-blue-600 font-semibold mb-2">{edu.school}</p>
-                <div className="flex justify-between text-sm text-gray-600">
+              <div key={index} className="bg-muted rounded-xl p-6 border border-border hover:border-foreground/20 transition-all duration-300 transform hover:scale-105">
+                <h3 className="text-xl font-bold text-foreground mb-2">{edu.degree}</h3>
+                <p className="text-foreground font-semibold mb-2">{edu.school}</p>
+                <div className="flex justify-between text-sm text-muted-foreground">
                   <span>{edu.gpa}</span>
                   <span>{edu.year}</span>
                 </div>
@@ -161,16 +161,16 @@ const About = () => {
       </section>
 
       {/* Certifications Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-16 bg-foreground">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-white mb-12 text-center">
+          <h2 className="text-3xl font-bold text-background mb-12 text-center">
             Certifications & Training
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
             {certifications.map((cert, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-md rounded-lg p-4 text-white hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+              <div key={index} className="bg-background/10 backdrop-blur-md rounded-lg p-4 text-background hover:bg-background/20 transition-all duration-300 transform hover:scale-105">
                 <div className="flex items-center">
-                  <svg className="w-6 h-6 mr-3 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 mr-3 text-background/80" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                   </svg>
                   <span className="font-medium">{cert}</span>
